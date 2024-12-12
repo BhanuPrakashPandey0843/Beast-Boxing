@@ -1,97 +1,116 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import './HeroSection.css';
+
+import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import image1 from '../../assets/images/image1.jpg';
+import image2 from '../../assets/images/image2.jpg';
+import image3 from '../../assets/images/image3.jpg';
 
 const HeroSection = () => {
   // Animation variants
-  const headingVariants = {
-    hidden: { opacity: 0, y: -50 },
+  const variants = {
+    hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
-  };
-
-  const paragraphVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
-  };
-
-  const videoVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1 },
   };
 
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat h-[80vh] pt-20"
+      className="relative bg-cover bg-center bg-no-repeat h-[80vh] pt-24"
       style={{ backgroundImage: "url('https://th.bing.com/th/id/OIP.UwEFPMcy6AH84PgEHqSNuAHaEo?rs=1&pid=ImgDetMain')" }}
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-black opacity-60"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
       <div className="relative z-10 container mx-auto px-4 text-center text-white flex flex-col justify-center items-center h-full">
+        {/* Spacer for shifting content down */}
+        <div className="mb-48"></div>
+
         {/* Main Heading with animation */}
         <motion.h1
           className="text-4xl md:text-5xl lg:text-[5rem] font-extrabold"
           initial="hidden"
           animate="visible"
-          variants={headingVariants}
-          transition={{ duration: 0.5 }}
+          variants={variants}
+          transition={{ duration: 0.6 }}
         >
-          Championing Fighters, Building Legends  <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500 text-[3rem] md:text-[4rem] lg:text-[5rem]">
-          Worldwide.
+          Championing Fighters, Building Legends <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
+            Worldwide.
           </span>
         </motion.h1>
 
-        {/* Paragraph with animation */}
+        {/* Subheading Paragraph */}
         <motion.p
-          className="mt-2 text-gray-300 text-base md:text-lg"
+          className="mt-4 text-gray-300 text-base md:text-lg"
           initial="hidden"
           animate="visible"
-          variants={paragraphVariants}
-          transition={{ duration: 0.5, delay: 0.3 }} // Delay for staggered effect
+          variants={variants}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
           Unleash Your Power, Fight Hard.
         </motion.p>
 
-        {/* CTA Button with animation */}
-        <div className="mt-6">
-          <motion.a
-            href="/contact"
-            className="bg-teal-500 px-6 py-2 text-md font-semibold rounded-full hover:bg-teal-600 transition-all duration-300"
-            initial="hidden"
-            animate="visible"
-            variants={buttonVariants}
-            transition={{ duration: 0.5, delay: 0.6 }} // Delay for staggered effect
-            aria-label="Contact Us"
-            whileHover={{ scale: 1.05, rotate: 3 }} // Added scale and rotate effect on hover
-          >
-            Contact Us
-          </motion.a>
-        </div>
-
-        {/* Embedded Video Section with animation */}
+        {/* CTA Button */}
         <motion.div
-          className="mt-8 relative w-full max-w-4xl"
+          className="mt-8"
           initial="hidden"
           animate="visible"
-          variants={videoVariants}
-          transition={{ duration: 0.5, delay: 0.9 }} // Delay for staggered effect
+          variants={variants}
+          transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <iframe
-            width="100%"
-            height="400"
-            src="https://www.youtube.com/embed/puHFeOPpxqk"
-            title="YouTube video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="rounded-xl shadow-lg aspect-video absolute left-1/2 transform -translate-x-1/2"
-            style={{ top: "-20%", borderRadius: "30px" }} // Adjusted to position video upward
-          />
+          <a
+            href="/contact"
+            className="bg-teal-500 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:bg-teal-600 transition-all duration-300"
+            aria-label="Contact Us"
+          >
+            Contact Us
+          </a>
+        </motion.div>
+
+        {/* Image Carousel */}
+        <motion.div
+          className="mt-12 relative w-full max-w-4xl glow-animation"
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={{ duration: 0.6, delay: 0.9 }}
+        >
+          <Swiper
+            modules={[Pagination, Navigation, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            className="rounded-xl shadow-2xl"
+          >
+            <SwiperSlide>
+              <img
+                src={image1}
+                alt="Fighter preparing for a match"
+                className="w-full h-[400px] object-cover rounded-xl"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={image2}
+                alt="Fighter in action"
+                className="w-full h-[400px] object-cover rounded-xl"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={image3}
+                alt="Victory moment"
+                className="w-full h-[400px] object-cover rounded-xl"
+              />
+            </SwiperSlide>
+          </Swiper>
         </motion.div>
       </div>
     </section>

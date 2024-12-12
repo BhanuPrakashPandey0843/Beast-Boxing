@@ -6,11 +6,11 @@ const Loader = () => {
       className="w-full h-screen flex flex-col justify-center items-center bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white"
       style={{ overflow: "hidden" }}
     >
-      {/* Rotating Logo Animation */}
+      {/* Zoom-in Logo Animation */}
       <img
         src={logo}
         alt="Logo"
-        className="h-36 w-auto md:h-48 animate-spin-slow"
+        className="h-36 w-auto md:h-48 animate-zoom-in"
       />
 
       {/* Company Name Animation */}

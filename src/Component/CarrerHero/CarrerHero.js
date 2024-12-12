@@ -31,10 +31,10 @@ const CarrerHero = () => {
           </div>
           <h3 className="text-2xl font-bold mb-4 text-center text-teal-300">REFEREE</h3>
           <p className="text-sm text-gray-200 text-center mb-4">
-            General • Biology • Chemistry • Physics • Math
-          </p>
+          Impartial • Decisive • Authoritative • Courageous
+          </p>      
           <p className="text-sm text-gray-300 text-center mb-6">
-            Learn everything from foundational subjects with expert guidance.
+          The boxing referee: the guardian of fairness and safety in the ring.
           </p>
           <div className="flex justify-center">
             <button
@@ -54,10 +54,10 @@ const CarrerHero = () => {
           </div>
           <h3 className="text-2xl font-bold mb-4 text-center text-teal-300">PRO BOXER</h3>
           <p className="text-sm text-gray-200 text-center mb-4">
-            General • Biology • Chemistry • Physics • Math
+          Courage • Strength • Discipline • Resilience • Technique
           </p>
           <p className="text-sm text-gray-300 text-center mb-6">
-            Dive deep into advanced topics with personalized learning paths.
+          The boxer: a warrior in the ring, fueled by passion and determination.
           </p>
           <div className="flex justify-center">
             <button
@@ -77,10 +77,10 @@ const CarrerHero = () => {
           </div>
           <h3 className="text-2xl font-bold mb-4 text-center text-teal-300">JUDGE</h3>
           <p className="text-sm text-gray-200 text-center mb-4">
-            General • Biology • Chemistry • Physics • Math
+          Impartiality • Integrity • Fairness • Authority • Observations
           </p>
           <p className="text-sm text-gray-300 text-center mb-6">
-            Unlock your potential with our top productivity tools and tips.
+          The judge in the boxing ring: the silent guardian of fairness, wielding the power of impartiality with every score.
           </p>
           <div className="flex justify-center">
             <button

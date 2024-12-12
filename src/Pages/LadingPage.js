@@ -12,7 +12,7 @@ import Footer  from '../Component/Footer/Footer';
 const Homepage = () => {
   return (
     <div>
-       <Navbar />
+      <Navbar />
       <HeroSection />
       <SupportSection />
       <TeamSection />

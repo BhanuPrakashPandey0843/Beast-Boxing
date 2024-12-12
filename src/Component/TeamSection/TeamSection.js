@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import Bhanu from './Bhanu.jpg';
 
 const TeamMemberCard = ({ member }) => (
   <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300 relative">
-    <img
-      src={member.image}
-      alt={member.name}
-      className="h-60 sm:h-72 w-full object-cover group-hover:scale-105 transition-transform duration-300"
-      onError={(e) => {
-        e.target.onerror = null; // Prevents looping
-        e.target.src = 'https://via.placeholder.com/300x300'; // Placeholder image
-      }}
-    />
+    <div className="w-full h-60 sm:h-72 lg:h-80 relative">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="object-cover object-center w-full h-full group-hover:scale-105 transition-transform duration-300"
+        onError={(e) => {
+          e.target.onerror = null; 
+          e.target.src = 'https://via.placeholder.com/300x300'; 
+        }}
+      />
+    </div>
     <div className="p-6">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-xl font-semibold">{member.name}</h3>
@@ -31,41 +32,35 @@ const TeamMemberCard = ({ member }) => (
 );
 
 const TeamSection = () => {
+  
   const teamMembers = [
     { 
-      name: 'Bhanu Prakash Pandey', 
-      role: 'Developer', 
-      image: Bhanu, 
+      name: 'Mr. Abhilash', 
+      role: 'Owner', 
+      image: 'https://th.bing.com/th/id/OIP.eXWcaYbEtO2uuexHM8sAwwHaHa?pid=ImgDet&rs=1',
       linkedIn: 'https://www.linkedin.com/in/bhanu-prakash-pandey',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
+      description: 'As the owner, Mr. Abhilash oversees the overall vision and strategy of the team, ensuring all operations are running smoothly.' 
     },
     { 
-      name: 'Tabish Ahmad', 
-      role: 'Designer', 
-      image: 'https://th.bing.com/th/id/OIP.eXWcaYbEtO2uuexHM8sAwwHaHa?pid=ImgDet&rs=1', 
+      name: 'Ioana Schwalger', 
+      role: 'World PBC President', 
+      image: require('../../assets/images/image11.jpg'),  
       linkedIn: 'https://www.linkedin.com/in/tabish-ahmad',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
+      description: 'Ioana Schwalger, as the World PBC President, leads international initiatives and advocates for the team on a global scale.' 
     },
     { 
-      name: 'Hamza Bin-Majid', 
-      role: 'Developer', 
-      image: 'https://th.bing.com/th/id/OIP.eXWcaYbEtO2uuexHM8sAwwHaHa?pid=ImgDet&rs=1', 
+      name: 'Arden Fatu', 
+      role: 'Winner National Amateur Boxing', 
+      image: require('../../assets/images/image10.jpg'),  
       linkedIn: 'https://www.linkedin.com/in/hamza-bin-majid',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
+      description: 'Arden Fatu is a champion boxer who inspires the team with his discipline and drive, pushing others to excel in their respective fields.' 
     },
     { 
-      name: 'Anant Dandotiya', 
-      role: 'Developer', 
-      image: 'https://th.bing.com/th/id/OIP.eXWcaYbEtO2uuexHM8sAwwHaHa?pid=ImgDet&rs=1', 
+      name: 'John Glozier', 
+      role: 'Supervisor PCB', 
+      image: require('../../assets/images/Capture.JPG'),
       linkedIn: 'https://www.linkedin.com/in/anant-dandotiya',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
-    },
-    { 
-      name: 'Kirat Dhillon', 
-      role: 'Developer', 
-      image: 'https://th.bing.com/th/id/OIP.eXWcaYbEtO2uuexHM8sAwwHaHa?pid=ImgDet&rs=1', 
-      linkedIn: 'https://www.linkedin.com/in/kirat-dhillon',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
+      description: 'John Glozier supervises the team’s PCB projects, ensuring technical precision and quality in all designs and solutions.' 
     },
   ];
 
