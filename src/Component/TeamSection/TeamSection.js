@@ -51,7 +51,7 @@ const TeamSection = () => {
     { 
       name: 'Arden Fatu', 
       role: 'Winner National Amateur Boxing', 
-      image: require('../../assets/images/image10.jpg'),  
+      image: require('../../assets/images/Untitled.png'),  
       linkedIn: 'https://www.linkedin.com/in/hamza-bin-majid',
       description: 'Arden Fatu is a champion boxer who inspires the team with his discipline and drive, pushing others to excel in their respective fields.' 
     },
