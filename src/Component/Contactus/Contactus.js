@@ -7,7 +7,7 @@ const Contactus = () => {
     const formData = new FormData(event.target);
 
     
-    formData.append("access_key", "7a282ada-7399-4bba-8ba9-c67e3db33b05");
+    formData.append("access_key", " ***** ");  {*put the api key here insted of *}
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
