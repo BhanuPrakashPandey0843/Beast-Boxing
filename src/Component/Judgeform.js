@@ -1,6 +1,32 @@
 import React from 'react'
 
 const Judgeform = () => {
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    
+    formData.append("access_key", "7a282ada-7399-4bba-8ba9-c67e3db33b05");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Message sent successfully!");
+        event.target.reset(); 
+      } else {
+        alert("Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
   return (
     <div>
        {/* Form 2: Referee/Judge */}
@@ -11,7 +37,7 @@ const Judgeform = () => {
           Be a part of our judging panel or referee team to officiate at Beast Boxing Promotion events.
         </p>
         
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={onSubmit}>
           <div>
             <input
               type="text"

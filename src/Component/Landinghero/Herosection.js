@@ -7,30 +7,32 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-import image1 from '../../assets/images/image1.jpg';
+import image5 from '../../assets/images/image1.jpg';
 import image2 from '../../assets/images/image2.jpg';
 import image3 from '../../assets/images/image3.jpg';
+import image4 from '../../assets/images/slide1.png';
+import image1 from '../../assets/images/slide2.png';
+
 
 const HeroSection = () => {
-  // Animation variants
   const variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat h-[80vh] pt-24"
-      style={{ backgroundImage: "url('https://th.bing.com/th/id/OIP.UwEFPMcy6AH84PgEHqSNuAHaEo?rs=1&pid=ImgDetMain')" }}
-    >
+<section
+  className="relative bg-cover bg-center bg-no-repeat h-[150vh] pt-[150px]" // Adjusted padding-top
+  style={{
+    backgroundImage: "url('https://th.bing.com/th/id/OIP.UwEFPMcy6AH84PgEHqSNuAHaEo?rs=1&pid=ImgDetMain')",
+  }}
+>
+
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
 
       <div className="relative z-10 container mx-auto px-4 text-center text-white flex flex-col justify-center items-center h-full">
-        {/* Spacer for shifting content down */}
-        <div className="mb-48"></div>
-
-        {/* Main Heading with animation */}
+        {/* Main Heading */}
         <motion.h1
           className="text-4xl md:text-5xl lg:text-[5rem] font-extrabold"
           initial="hidden"
@@ -89,27 +91,15 @@ const HeroSection = () => {
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             className="rounded-xl shadow-2xl"
           >
-            <SwiperSlide>
-              <img
-                src={image1}
-                alt="Fighter preparing for a match"
-                className="w-full h-[400px] object-cover rounded-xl"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={image2}
-                alt="Fighter in action"
-                className="w-full h-[400px] object-cover rounded-xl"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={image3}
-                alt="Victory moment"
-                className="w-full h-[400px] object-cover rounded-xl"
-              />
-            </SwiperSlide>
+            {[image1, image2, image3, image4, image5].map((src, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={src || 'https://via.placeholder.com/400x400?text=Image+Missing'}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-[400px] object-cover rounded-xl"
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </motion.div>
       </div>

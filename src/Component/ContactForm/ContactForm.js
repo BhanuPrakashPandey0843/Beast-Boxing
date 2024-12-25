@@ -1,6 +1,32 @@
 import React from 'react';
 
 const ContactForm = () => {
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    
+    formData.append("access_key", "7a282ada-7399-4bba-8ba9-c67e3db33b05");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Message sent successfully!");
+        event.target.reset(); 
+      } else {
+        alert("Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-800 flex items-center justify-center p-8">
       <div className="w-full max-w-2xl bg-gray-900 p-10 rounded-lg shadow-lg">
@@ -8,7 +34,7 @@ const ContactForm = () => {
           Join <span className="text-teal-500">Beast Boxing</span>
         </h2>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={onSubmit}>
           {/* Name */}
           <div>
             <input

@@ -1,12 +1,14 @@
-import React from "react";
-import { FaInstagram } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 
 const Contactus = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const onSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    setIsSubmitting(true);
 
-    
+    const formData = new FormData(event.target);
     formData.append("access_key", "7a282ada-7399-4bba-8ba9-c67e3db33b05");
 
     try {
@@ -19,20 +21,22 @@ const Contactus = () => {
 
       if (result.success) {
         alert("Message sent successfully!");
-        event.target.reset(); 
+        event.target.reset();
       } else {
         alert("Failed to send message. Please try again later.");
       }
     } catch (error) {
       console.error("Error submitting the form:", error);
       alert("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="my-16">
-      <div className="grid lg:grid-cols-2 gap-10 p-8 mx-auto w-full bg-white shadow-xl rounded-xl text-[#333] font-[sans-serif]">
-        
+    <div className="contactus-container relative z-10 bg-white">
+      <div className="grid lg:grid-cols-2 gap-10 p-8 mx-auto w-full shadow-xl rounded-xl text-[#333] font-[sans-serif]">
+        {/* Left Section */}
         <div className="space-y-6 px-6 md:px-10">
           <h2 className="text-lg md:text-xl font-semibold text-teal-500 tracking-wider uppercase">
             Contact Us
@@ -47,7 +51,7 @@ const Contactus = () => {
             success both in and out of the ring.
           </p>
 
-          
+          {/* Email Section */}
           <div className="mt-6">
             <h2 className="text-xl font-semibold mb-2">Email</h2>
             <ul className="flex items-center space-x-4">
@@ -73,17 +77,27 @@ const Contactus = () => {
             </ul>
           </div>
 
-          
+          {/* Social Media Section */}
           <div className="mt-6">
             <h2 className="text-xl font-semibold mb-2">Follow Us</h2>
             <ul className="flex space-x-4">
               <li className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center hover:bg-gray-200">
-                <a href="#!" aria-label="Facebook">
-              
+                <a
+                  href="https://facebook.com"
+                  aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebookF size={24} color="#007bff" />
                 </a>
               </li>
               <li className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center hover:bg-gray-200">
-                <a href="#!" aria-label="Instagram">
+                <a
+                  href="https://instagram.com"
+                  aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaInstagram size={24} color="#007bff" />
                 </a>
               </li>
@@ -91,7 +105,7 @@ const Contactus = () => {
           </div>
         </div>
 
-        
+        {/* Right Section - Form */}
         <div className="flex flex-col justify-center px-8 md:px-10">
           <h2 className="text-lg md:text-xl font-semibold text-teal-500 tracking-wider uppercase">
             Send a Message
@@ -100,6 +114,7 @@ const Contactus = () => {
             <input
               type="text"
               name="name"
+              aria-label="Your Name"
               placeholder="Your Name"
               className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
@@ -107,6 +122,7 @@ const Contactus = () => {
             <input
               type="email"
               name="email"
+              aria-label="Your Email"
               placeholder="Your Email"
               className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
@@ -114,6 +130,7 @@ const Contactus = () => {
             <textarea
               rows="4"
               name="message"
+              aria-label="Your Message"
               placeholder="Your Message"
               className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
@@ -121,8 +138,9 @@ const Contactus = () => {
             <button
               type="submit"
               className="bg-teal-500 text-white font-semibold rounded-md py-2 hover:bg-teal-600 transition duration-300 w-full"
+              disabled={isSubmitting}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
