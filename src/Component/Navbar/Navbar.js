@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   HiHome,
   HiUserGroup,
@@ -6,7 +6,7 @@ import {
   HiFlag,
   HiPhone,
   HiX,
-} from 'react-icons/hi';
+} from "react-icons/hi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,16 +24,16 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
       className={`fixed w-full z-50 top-0 left-0 transition-all duration-500 ${
         isScrolled
-          ? 'bg-gray-900 bg-opacity-90 shadow-lg'
-          : 'bg-transparent'
+          ? "bg-gray-900 bg-opacity-90 shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -42,9 +42,9 @@ const Navbar = () => {
           <img
             src="logo.png"
             alt="Logo"
-            className="h-12 w-12 mr-4 transition-transform duration-500 hover:scale-125"
+            className="h-12 w-12 mr-4 transition-transform duration-500 hover:scale-125 hover:rotate-12"
           />
-          <h1 className="text-2xl md:text-4xl font-bold text-white tracking-wide">
+          <h1 className="text-2xl md:text-4xl font-bold text-white tracking-wide hover:text-teal-400 transition-colors duration-300">
             Beast Boxing
           </h1>
         </div>
@@ -52,11 +52,11 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-lg font-medium text-white">
           {[
-            { href: '/home', label: 'Home', icon: HiHome },
-            { href: '/about', label: 'About Us', icon: HiUserGroup },
-            { href: '/team', label: 'Our Team', icon: HiClipboardList },
-            { href: '/gallery', label: 'Gallery', icon: HiFlag },
-            { href: '/career', label: 'Career', icon: HiFlag },
+            { href: "/home", label: "Home", icon: HiHome },
+            { href: "/about", label: "About Us", icon: HiUserGroup },
+            { href: "/team", label: "Our Team", icon: HiClipboardList },
+            { href: "/gallery", label: "Gallery", icon: HiFlag },
+            { href: "/career", label: "Career", icon: HiFlag },
           ].map((item) => (
             <li
               key={item.href}
@@ -99,7 +99,7 @@ const Navbar = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
             />
           </svg>
         </button>
@@ -107,8 +107,8 @@ const Navbar = () => {
 
       {/* Mobile Slide-in Menu */}
       <div
-        className={`fixed top-0 right-0 w-64 bg-gradient-to-b from-gray-800 to-black h-full transition-transform transform ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed top-0 right-0 w-80 bg-gradient-to-b from-gray-800 to-black h-full transition-transform transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         } duration-500 ease-in-out shadow-2xl`}
       >
         <div className="flex justify-between items-center p-4 border-b border-gray-700">
@@ -119,12 +119,12 @@ const Navbar = () => {
         </div>
         <ul className="space-y-6 text-lg font-medium p-8 text-white">
           {[
-            { href: '/home', label: 'Home', icon: HiHome },
-            { href: '/about', label: 'About Us', icon: HiUserGroup },
-            { href: '/team', label: 'Our Team', icon: HiClipboardList },
-            { href: '/gallery', label: 'Gallery', icon: HiFlag },
-            { href: '/career', label: 'Career', icon: HiFlag },
-            { href: '/contact', label: 'Contact Us', icon: HiPhone },
+            { href: "/home", label: "Home", icon: HiHome },
+            { href: "/about", label: "About Us", icon: HiUserGroup },
+            { href: "/team", label: "Our Team", icon: HiClipboardList },
+            { href: "/gallery", label: "Gallery", icon: HiFlag },
+            { href: "/career", label: "Career", icon: HiFlag },
+            { href: "/contact", label: "Contact Us", icon: HiPhone },
           ].map((item) => (
             <li key={item.href}>
               <a

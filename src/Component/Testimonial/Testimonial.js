@@ -3,19 +3,19 @@ import React, { useState, useEffect } from 'react';
 const testimonials = [
   {
     name: "Bhanu Prakash Pandey",
-    school: "Mumbai",
+  
     image: require("./Bhanu.jpg"),
     text: "Beast Boxing is a true game changer in the world of boxing promotions! What sets them apart is their focus on the well-being and financial success of their athletes. It’s not just about winning fights; they take a holistic approach, offering top-notch training, sponsorship opportunities, and even financial literacy to help boxers build sustainable careers. As a fan, it's refreshing to see a company genuinely invested in the long-term success of its fighters both inside and outside the ring. Beast Boxing is paving the way for the future of the sport. Highly recommend!",
   },
   {
     name: "Aman Kumar",
-    school: "Delhi",
+    
     image: "https://randomuser.me/api/portraits/men/31.jpg",
     text: "I've been following Beast Boxing for a while now, and I'm really impressed with how they prioritize the development of their athletes. The training programs are elite, and the financial guidance they offer is unmatched in the industry. It's clear that Beast Boxing cares about more than just the next match – they help fighters build careers that can last well beyond their time in the ring. The only reason I didn't give five stars is that I think they could expand their reach and offer more grassroots programs to young fighters. Otherwise, fantastic company that’s changing the game!",
   },
   {
     name: "Abishek",
-    school: "Mumbai",
+    
     image: "https://randomuser.me/api/portraits/men/33.jpg",
     text: "Beast Boxing is doing something incredible for the sport of boxing. Their commitment to developing athletes holistically—offering not only elite training but also mentorship in branding, financial planning, and career development—is exactly what the industry needs. As a boxer myself, I can truly appreciate their forward-thinking approach. They aren’t just about getting you into big matches; they’re about ensuring long-term success. I’ve seen firsthand how they’ve helped fighters become financially independent and well-rounded individuals. Beast Boxing is the future of boxing, and I can’t wait to see how they continue to innovate!",
   },
@@ -86,17 +86,7 @@ const Testimonial = () => {
       </div>
 
       {/* Dots for Carousel */}
-      <div className="flex space-x-2 mt-4">
-        {testimonials.map((_, index) => (
-          <div
-            key={index}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              index === currentIndex ? 'bg-teal-500 scale-125' : 'bg-gray-300 hover:bg-gray-400'
-            }`}
-            onClick={() => setCurrentIndex(index)}
-          ></div>
-        ))}
-      </div>
+      
     </div>
   );
 };
