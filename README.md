@@ -1,7 +1,5 @@
-Here's a professional README file for your project:
 
----
-
+s
 # Beast Boxing Website
 
 Welcome to **Beast Boxing**, the ultimate website for boxing enthusiasts! This website is designed for the company **Beast Boxing**, providing a comprehensive platform for showcasing boxing training, career opportunities, and engaging content.
@@ -15,9 +13,9 @@ Welcome to **Beast Boxing**, the ultimate website for boxing enthusiasts! This w
 **Frontend:** React.js  
 **Backend:** Node.js, Express.js  
 **Database:** MongoDB  
-**Styling:** Tailwind CSS / Bootstrap (Specify if applicable)  
+**Styling:** Tailwind CSS  
 **Socket.IO:** (Include if real-time features are used)  
-**Animations:** React Spring / Inline styling (Specify if applicable)
+**Animations:** React Spring 
 
 ---
 
