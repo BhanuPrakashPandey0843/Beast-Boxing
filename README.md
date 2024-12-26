@@ -1,5 +1,5 @@
 
-s
+
 # Beast Boxing Website
 
 Welcome to **Beast Boxing**, the ultimate website for boxing enthusiasts! This website is designed for the company **Beast Boxing**, providing a comprehensive platform for showcasing boxing training, career opportunities, and engaging content.
@@ -119,5 +119,3 @@ For further inquiries, reach out to us at:
 - **Website:** [Beast Boxing](https://beast-boxing.com)  
 
 --- 
-
-This README ensures your project is well-documented and accessible to collaborators and users alike.
