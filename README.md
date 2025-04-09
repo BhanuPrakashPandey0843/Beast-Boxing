@@ -55,7 +55,7 @@ The website includes the following pages:
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/your-username/beast-boxing.git
+   https://github.com/BhanuPrakashPandey0843/Beast-Boxing.git
    cd beast-boxing
    ```
 
